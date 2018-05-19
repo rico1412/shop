@@ -18,4 +18,8 @@ class ProductController extends Controller {
     public function showAdd(){
         $this->display('product/productAdd.html');
     }
+
+    public function showEdit(){
+        $this->display('product/productEdit.html');
+    }
 }
