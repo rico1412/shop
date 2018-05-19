@@ -5,7 +5,7 @@ $config = array(
     //数据库配置
     'db' => [
         'type' =>  'mysql',//数据库类型
-        'host' =>  'localhost',//数据库IP地址
+        'host' =>  '192.168.64.21',//数据库IP地址
         'port' =>  3306,//端口号
         'char' =>  'utf8',//字符集
         'dbname' =>  'php30',//默认选择的数据库
