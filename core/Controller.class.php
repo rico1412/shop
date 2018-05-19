@@ -8,8 +8,6 @@ class Controller extends Smarty{
 
     public function __construct(){
 
-        $this->checkLogin();
-
         #解决父类构造方法被重写
         parent::__construct();
 
@@ -30,28 +28,8 @@ class Controller extends Smarty{
 
         //$this->smarty->setCompileDir($compileDir);//设置存放后台模板编译缓存文件的全路径
         $this->setCompileDir($compileDir);//设置存放后台模板编译缓存文件的全路径
-    }
 
-    /**
-     * 检查用户是否需要登录的方法
-     */
-    private function checkLogin(){
-
-        @session_start();
-        if (!isset($_SESSION['admin']) && !(G('plat') == 'home' || G('module') == 'Privilege')) {
-
-            if (isset($_COOKIE['rememberMe']) && $_COOKIE['rememberMe']) {
-                $sql = "select * from bl_user where id={$_COOKIE['rememberMe']}";
-                $model = M('\\model\\UserModel');
-                $row = $model->getRow($sql);
-
-                $_SESSION['admin'] = $row;
-            }
-
-            echo "当前未登录，请先登录！";
-            $url = C('URL.main') . '/index.php?p=admin&m=privilege&a=showLogin';
-            header("Refresh: 2; url={$url}");
-            exit;
-        }
+        $this->left_delimiter = '{<';
+        $this->right_delimiter = '>}';
     }
 }
