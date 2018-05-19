@@ -3,6 +3,8 @@
 //引入常量配置文件
 include './conf/define.php';
 
+include CONF_PATH . 'path.php';
+
 //引入主配置文件
 include CONF_PATH . 'conf.php';
 
