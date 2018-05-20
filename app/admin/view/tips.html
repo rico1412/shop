@@ -65,10 +65,12 @@
     <h1> 后台管理系统-信息提示 </h1>
     <div class="errorcon">
         {<if $ok>}
-        <i class="icon-smile-o"></i>操作成功！
+        <i class="icon-smile-o"></i>
         {<else>}
-        <i class="icon-frown-o"></i>操作失败！
+        <i class="icon-frown-o"></i>
         {</if>}
+
+        <span>{<$tips>}</span>
     </div>
     <h4 class="smaller">页面自动 <a id="href" href="{<$jumpUrl>}">跳转</a> 等待时间： <b id="wait">{<$waitSecond>}</b></h4>
 

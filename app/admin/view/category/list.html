@@ -17,7 +17,7 @@
       <td align="left">{<'&nbsp;'|str_repeat:20>} {<if $cat.dir_tree>=1>}├ {<'─ '|str_repeat:($cat.dir_tree-1)>} {</if>} {<$cat.name>}</td>
       <td>
         <div class="button-group"> 
-          <a class="button border-yellow" href="{<C('URL.main')>}/index.php?p=admin&m=category&a=showAd&id={<$cat.id>}"><span class="icon-edit"></span> 添加子分类</a>
+          <a class="button border-yellow" href="{<C('URL.main')>}/index.php?p=admin&m=category&a=showAd&id={<$cat.id>}&name={<$cat.name>}"><span class="icon-plus-square"></span> 添加子分类</a>
           <a class="button border-main" href="{<C('URL.main')>}/index.php?p=admin&m=category&a=edit&id={<$cat.id>}"><span class="icon-edit"></span> 修改</a> 
           <a class="button border-red" href="{<C('URL.main')>}/index.php?p=admin&m=category&a=drop&id={<$cat.id>}" onclick="return confirm('确定删除？')"><span class="icon-trash-o"></span> 删除</a> 
         </div>

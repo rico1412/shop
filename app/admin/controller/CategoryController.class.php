@@ -93,8 +93,10 @@ class CategoryController extends Controller {
 
     public function showAd(){
     	$id=$_GET['id'];
+    	$name=$_GET['name'];
     	$this->assign('id', $id);
-    	$this->display('category/cate.html');
+    	$this->assign('parent_name', $name);
+    	$this->display('category/add.html');
     }
 
     public function ushowAd(){
@@ -104,12 +106,13 @@ class CategoryController extends Controller {
     	$sql="insert into sp_category values (null,'{$name}',{$id})";
     	$re=$catModel->setData($sql);
     	if($re){
-    		echo "添加子分类成功";
+    		$str = "添加子分类成功!";
     	}else{
-    		echo "添加子分类失败";
+    		$str = "添加子分类失败!";
     	}
     	$url=C('URL.main').'/index.php?p=admin&m=category&a=showList';
-    	header('Refresh:2;url='.$url);     	
+    	$this->showTips($re, $str, $url);
+    	exit;
     }
 
 }
