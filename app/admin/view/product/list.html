@@ -1,0 +1,49 @@
+{<include file="common/header.html">}
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head"><strong class="icon-reorder"> 商品列表</strong></div>
+  <table class="table table-hover text-center">
+    <tr>
+      <th width="5%">序号</th>
+      <th width="25%">商品名</th>
+      <th width="10%">分类</th>
+      <th width="10%">原价</th>
+      <th width="10%">售价</th>
+      <th width="5%">状态</th>
+      <th width="15%">添加时间</th>
+      <th width="20%">操作</th>
+    </tr>
+
+    {<foreach from=$p_data item="data_val" name="f1">}
+    <tr>
+      <td>{<$smarty.foreach.f1.iteration>}</td>
+      <td>{<$data_val.name>}</td>
+      <td>{<$data_val.c_name>}</td>
+      <td>{<$data_val.ori_price>}</td>
+      <td>{<$data_val.price>}</td>
+      <td>{<if $data_val.status=="1">}<span style="color: red;">上架</span>{<else>}<span style="color: gray;">下架</span>{</if>}</td>
+      <td>{<$data_val.add_time|date_format: '%Y-%m-%d %H-%M'>}</td>
+      <td><div class="button-group"> <a class="button border-main" href="cateedit.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,2)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+    </tr>
+    {</foreach>}
+
+    <tr>
+      <td colspan="8">
+        <div class="pagelist">
+          {<$pageHtml>}
+        </div>
+      </td>
+    </tr>
+
+  </table>
+</div>
+<script type="text/javascript">
+function del(id,mid){
+	if(confirm("您确定要删除吗?")){			
+		
+	}
+}
+</script>
+</div>
+</body>
+</html>
