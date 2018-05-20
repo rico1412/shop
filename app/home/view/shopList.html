@@ -470,18 +470,20 @@
                                         <div class="product-catagory">
                                             <div class="single-list-product">
                                                 <div class="col-sm-4">
+                                                    {<foreach from=$datas key='datas_key' item='datas_val' name='f1'>}
                                                     <div class="list-product-img">
-                                                        <a href="single-product.html">
-                                                            <img src="{<C('URL.main')>}/public/home/img/product/1.png" alt="">
-                                                        </a>
+                                                        <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showintro&id={<$smarty.foreach.f1.iteration>}"> <img src="{<C('URL.main')>}/public/home/img/product/{<$datas_val.img>}" alt=""></a>
                                                     </div>
+                                                    {</foreach>}
                                                 </div>
                                                 <div class="col-sm-8">
+                                                  {<foreach from=$datas key='datas_key' item='datas_val' name='f1'>}
                                                     <div class="list-product-info">
-                                                        <a href="single-product.html" class="list-product-name"> Cras neque metus</a>
+                                                  
+                                                        <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showintro&id={<$smarty.foreach.f1.iteration>}">" class="list-product-name">{<$datas_val.name>}</a>
                                                         <div class="price-rating">
-                                                            <span class="old-price">$700.00</span>
-                                                            <span>$800.00</span>
+                                                            <span class="old-price">{<$datas_val.ori_price>}</span>
+                                                            <span>{<$datas_val.price>}</span>
                                                             <div class="ratings">
                                                                 <i class="fa fa-star"></i>
                                                                 <i class="fa fa-star"></i>
@@ -493,134 +495,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="list-product-details">
-                                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nul
+                                                            <p>{<$datas_val.intro>}
                                                             <a href="single-product.html">Learn More</a> </p>
                                                         </div>
+                                                       
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="single-list-product">
-                                                <div class="col-sm-4">
-                                                    <div class="list-product-img">
-                                                        <a href="single-product.html">
-                                                            <img src="{<C('URL.main')>}/public/home/img/product/6.png" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <div class="list-product-info">
-                                                        <a href="single-product.html" class="list-product-name"> Cras neque metus</a>
-                                                        <div class="price-rating">
-                                                            <span class="old-price">$700.00</span>
-                                                            <span>$800.00</span>
-                                                            <div class="ratings">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-half-o"></i>
-                                                                <a href="#" class="review">1 Review(s)</a>
-                                                                <a href="#" class="add-review">Add Your Review</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="list-product-details">
-                                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nul
-                                                            <a href="single-product.html">Learn More</a> </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="single-list-product">
-                                                <div class="col-sm-4">
-                                                    <div class="list-product-img">
-                                                        <a href="single-product.html">
-                                                            <img src="{<C('URL.main')>}/public/home/img/product/3.png" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <div class="list-product-info">
-                                                        <a href="single-product.html" class="list-product-name"> Cras neque metus</a>
-                                                        <div class="price-rating">
-                                                            <span class="old-price">$700.00</span>
-                                                            <span>$800.00</span>
-                                                            <div class="ratings">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-half-o"></i>
-                                                                <a href="#" class="review">1 Review(s)</a>
-                                                                <a href="#" class="add-review">Add Your Review</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="list-product-details">
-                                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nul
-                                                            <a href="single-product.html">Learn More</a> </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="single-list-product">
-                                                <div class="col-sm-4">
-                                                    <div class="list-product-img">
-                                                        <a href="single-product.html">
-                                                            <img src="{<C('URL.main')>}/public/home/img/product/4.png" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <div class="list-product-info">
-                                                        <a href="single-product.html" class="list-product-name"> Cras neque metus</a>
-                                                        <div class="price-rating">
-                                                            <span class="old-price">$700.00</span>
-                                                            <span>$800.00</span>
-                                                            <div class="ratings">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-half-o"></i>
-                                                                <a href="#" class="review">1 Review(s)</a>
-                                                                <a href="#" class="add-review">Add Your Review</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="list-product-details">
-                                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nul
-                                                            <a href="single-product.html">Learn More</a> </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="single-list-product">
-                                                <div class="col-sm-4">
-                                                    <div class="list-product-img">
-                                                        <a href="single-product.html">
-                                                            <img src="{<C('URL.main')>}/public/home/img/product/5.png" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <div class="list-product-info">
-                                                        <a href="single-product.html" class="list-product-name"> Cras neque metus</a>
-                                                        <div class="price-rating">
-                                                            <span class="old-price">$700.00</span>
-                                                            <span>$800.00</span>
-                                                            <div class="ratings">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star-half-o"></i>
-                                                                <a href="#" class="review">1 Review(s)</a>
-                                                                <a href="#" class="add-review">Add Your Review</a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="list-product-details">
-                                                            <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nul
-                                                            <a href="single-product.html">Learn More</a> </p>
-                                                        </div>
-                                                    </div>
+                                                     {</foreach>}
                                                 </div>
                                             </div>
                                         </div>
