@@ -23,8 +23,8 @@ $config = array(
     //文件上传配置
     'upF' => [
         'limitType' => ['image/jpeg', 'image/png'],//限定的文件类型
-        'limitSize' => 200*1024,//限定的文件大小200K
-        'path' => $root_path . 'public/admin/user_img'//上传文件存放的目录路径
+        'limitSize' => 300*1024,//限定的文件大小200K
+        'path' => $root_path . 'public/admin/img'//上传文件存放的目录路径
     ],
     //网站域名配置项
     'URL' => [

@@ -1,0 +1,117 @@
+{<include file="common/header.html">}
+    <body>
+    <div class="panel admin-panel">
+        <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>修改内容</strong></div>
+        <div class="body-content">
+            <form method="post" class="form-x" action="{<C('URL.main')>}/index.php?p=admin&m=product&a=upd_h&id={<$p_data.id>}" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品名称：</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" class="input w50" value="{<$p_data.name>}" name="name" data-validate="required:请输入商品名称"/>
+                        <div class="tips"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品原价：</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" class="input w50" value="{<intval($p_data.ori_price * 100)>}" name="ori_price" data-validate="required:,number:请输入商品原价，必须为数字"/>
+                        <div class="tipss">分为单位</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品售价：</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" class="input w50" value="{<intval($p_data.price * 100)>}" name="price" data-validate="required:,number:请输入商品售价，必须为数字"/>
+                        <div class="tipss">分为单位</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品图片：</label>
+                    </div>
+                    <div class="field">
+                        <input type="file" id="url1" name="img" class="input tips" style="width:25%; float:left;" value=""/>
+                        <div class="tipss">留空代表不更改图片</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品分类：</label>
+                    </div>
+                    <div class="field">
+                        <select name="c_id" class="input w50">
+                            <option value="0">请选择分类</option>
+                            <option value="1">产品分类</option>
+                            <option value="2">产品分类</option>
+                            <option value="3">产品分类</option>
+                            <option value="4">产品分类</option>
+                        </select>
+                        <div class="tips"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品状态：</label>
+                    </div>
+
+                    <div class="field">
+                        <div class="button-group radio">
+
+                            <label class="button {<if $p_data.status==1>}active{</if>}">
+                                <span class="icon icon-check"></span>
+                                <input name="status" value="1" type="radio" {<if $p_data.status==1>}checked{</if>}>上架
+                            </label>
+
+                            <label class="button {<if $p_data.status==0>}active{</if>}"><span class="icon icon-times"></span>
+                                <input name="status" value="0"  type="radio" {<if $p_data.status==0>}checked{</if>}>下架
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品简介：</label>
+                    </div>
+                    <div class="field">
+                        <textarea class="input" name="intro" style="height:90px;">{<$p_data.intro>}</textarea>
+                        <div class="tips"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>商品详情：</label>
+                    </div>
+                    <div class="field">
+          <textarea name="description" id='description' style="height:300px;">{<$p_data.descript>}</textarea>
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('description')
+                        </script>
+                        <div class="tips"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label></label>
+                    </div>
+                    <div class="field">
+                        <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    </body>
+    </html>

@@ -23,7 +23,12 @@
       <td>{<$data_val.price>}</td>
       <td>{<if $data_val.status=="1">}<span style="color: red;">上架</span>{<else>}<span style="color: gray;">下架</span>{</if>}</td>
       <td>{<$data_val.add_time|date_format: '%Y-%m-%d %H-%M'>}</td>
-      <td><div class="button-group"> <a class="button border-main" href="cateedit.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del(1,2)"><span class="icon-trash-o"></span> 删除</a> </div></td>
+      <td>
+        <div class="button-group">
+          <a class="button border-main" href="{<C('URL.main')>}/index.php?p=admin&m=product&a=showEdit&id={<$data_val.id>}"><span class="icon-edit"></span> 修改</a>
+          <a class="button border-red" href="{<C('URL.main')>}/index.php?p=admin&m=product&a=del_h&id={<$data_val.id>}" onclick="return confirm('您确定要删除吗?')"><span class="icon-trash-o"></span> 删除</a>
+        </div>
+      </td>
     </tr>
     {</foreach>}
 
@@ -37,13 +42,6 @@
 
   </table>
 </div>
-<script type="text/javascript">
-function del(id,mid){
-	if(confirm("您确定要删除吗?")){			
-		
-	}
-}
-</script>
 </div>
 </body>
 </html>
