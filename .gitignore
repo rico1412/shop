@@ -2,6 +2,6 @@
 .idea
 /app/admin/view_c/
 /b.log
-/public/admin/user_img/
 /app/home/view_c/
 /*.~vsd
+/conf/path.php
