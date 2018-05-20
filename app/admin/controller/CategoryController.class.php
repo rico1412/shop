@@ -16,27 +16,27 @@ class CategoryController extends Controller {
     	$catModel=M('CatModel');// $catModel=\core\App::single('\\model\\CatModel');
 
 
-        // $nowPage=isset($_GET['page'])?$_GET['page']:1;//当前页未选定默认为1
-        // $numPerPage=7;//每页最大显示数据条数
+        $nowPage=isset($_GET['page'])?$_GET['page']:1;//当前页未选定默认为1
+        $numPerPage=7;//每页最大显示数据条数
         //计算总页数
-        // $sql="select count(*) as num from sp_category where 1";
-        // $data=$catModel->getRow($sql);
-        // $totalPage=intval(ceil($data['num']/$numPerPage));//总页数
-        // $x=($nowPage-1)*$numPerPage;//偏移量
-        // $url=C('URL.main').'/index.php?p=admin&m=index&a=showList&page';
-        // $pageHtml=pageHtml($nowPage,$totalPage,$url);
+        $sql="select count(*) as num from sp_category where 1";
+        $data=$catModel->getRow($sql);
+        $totalPage=intval(ceil($data['num']/$numPerPage));//总页数
+        $x=($nowPage-1)*$numPerPage;//偏移量
+        $url=C('URL.main').'/index.php?p=admin&m=category&a=showList&page';
+        $pageHtml=pageHtml($nowPage,$totalPage,$url);
         // $sql="select c.id,c.name,c.parent_id,g.category_id from sp_category as c join sp_goods_info as g on c.parent_id=g.category_id order by g.category_id limit {$x},{$numPerPage}";
         // $rows=$catModel->getRows($sql);
         /*echo "<pre />";
         var_dump($rows);die;*/
-        // $firstRowNum=($nowPage-1)*$numPerPage+1;//当前页第一条数据的序号
+        $firstRowNum=($nowPage-1)*$numPerPage+1;//当前页第一条数据的序号
 
     	$tree=$catModel->getCats();
     	//分配数据
     	$this->assign('categorys',$tree);
-    	// $this->assign('pageHtml',$pageHtml);
-       	// $this->assign('rows',$tree);
-    	// $this->assign('firstRowNum',$firstRowNum);
+    	$this->assign('pageHtml',$pageHtml);
+       	$this->assign('rows',$tree);
+    	$this->assign('firstRowNum',$firstRowNum);
         $this->display('category/list.html');
     }
 
@@ -55,7 +55,7 @@ class CategoryController extends Controller {
 
     public function uedit(){
     	$id=$_GET['id'];
-    	$name=htmlEncode($_POST['name']);
+    	$name=$_POST['name'];
     	// $var_dump($name);die;
     	$catModel=M('CatModel'); 
     	$sql="update sp_category set name='{$name}' where id={$id}";
