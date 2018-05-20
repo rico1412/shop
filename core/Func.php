@@ -61,8 +61,9 @@ function htmlDecode($str){
  * @param  $url  string  跳转的连接，例：http://www.home.com/class/day2/code/page.php?xxx=xxx&xxx=xxx&page
  * @return string
  */
-function pageHtml($nowPage, $totalPage, $url)
-{
+function pageHtml($nowPage, $totalPage, $url){
+    
+    $totalPage = $totalPage == 0 ? 1 : $totalPage;
 
     #构建左半边部分
     //左半边需要的参数
