@@ -5,7 +5,7 @@ $config = array(
     //数据库配置
     'db' => [
         'type' =>  'mysql',//数据库类型
-        'host' =>  '192.168.64.21',//数据库IP地址
+        'host' =>  'localhost',//数据库IP地址
         'port' =>  3306,//端口号
         'char' =>  'utf8',//字符集
         'dbname' =>  'php30',//默认选择的数据库
@@ -24,7 +24,7 @@ $config = array(
     'upF' => [
         'limitType' => ['image/jpeg', 'image/png'],//限定的文件类型
         'limitSize' => 200*1024,//限定的文件大小200K
-        'path' => 'D:/phpstorm/blog_test/public/admin/user_img'//上传文件存放的目录路径
+        'path' => $root_path . 'public/admin/user_img'//上传文件存放的目录路径
     ],
     //网站域名配置项
     'URL' => [
@@ -34,7 +34,7 @@ $config = array(
     'captcha' => [
         'w' => 200,//验证码画布的宽度
         'h' => 120,//验证码画布的高度
-        'fontFile'=> 'D:/phpstorm/blog_test/public/msyh.ttc',//验证码字体文件路径
+        'fontFile'=> $root_path . 'public/msyh.ttc',//验证码字体文件路径
         'str_b_x' => 1/6,//字符起点x坐标占宽度的比例
         'str_b_y' => 13/20,//字符起点y坐标占高度的比例
         'str_size' => 3/15//字体大小占画布宽度的比例
