@@ -7,4 +7,4 @@
  */
 
 # 项目根目录的路径
-$root_path = 'D:/phpstorm/blog_test/';
+$root_path = 'D:/wamp/Apache24/htdocs/shop/';
