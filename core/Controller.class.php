@@ -49,4 +49,13 @@ class Controller extends Smarty{
         $this->left_delimiter = '{<';
         $this->right_delimiter = '>}';
     }
+
+    public function showTips($ok=true, $tips='操作成功', $jumpUrl='', $waitSecond=2){
+
+        $this->assign('tips', $tips);
+        $this->assign('ok', $ok);
+        $this->assign('jumpUrl', $jumpUrl);
+        $this->assign('waitSecond', $waitSecond);
+        $this->display('tips.html');
+    }
 }
