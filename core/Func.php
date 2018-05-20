@@ -62,7 +62,7 @@ function htmlDecode($str){
  * @return string
  */
 function pageHtml($nowPage, $totalPage, $url){
-    
+
     $totalPage = $totalPage == 0 ? 1 : $totalPage;
 
     #构建左半边部分
