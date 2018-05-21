@@ -35,6 +35,13 @@ class ProductController extends Controller {
     }
 
     public function showAdd(){
+
+        $c_model = M('CatModel');
+
+        # 获取分类数据
+        $c_data = $c_model->getCats();
+
+        $this->assign('c_data', $c_data);
         $this->display('product/add.html');
     }
 
@@ -79,6 +86,13 @@ class ProductController extends Controller {
         $model = M('ProductModel');
         $p_data = $model->getRow($sql);
 
+        # 展示分类数据
+        $c_model = M('CatModel');
+
+        # 获取分类数据
+        $c_data = $c_model->getCats();
+
+        $this->assign('c_data', $c_data);
         $this->assign('p_data', $p_data);
         $this->display('product/edit.html');
     }
@@ -87,21 +101,25 @@ class ProductController extends Controller {
 
         $id = $_GET['id'];
         $name = htmlEncode($_POST['name']);
-        $ori_price = htmlEncode($_POST['ori_price']);
-        $price = htmlEncode($_POST['price']);
+        $ori_price = htmlEncode($_POST['ori_price']) / 100;
+        $price = htmlEncode($_POST['price']) / 100;
         $c_id = $_POST['c_id'];
         $status = $_POST['status'];
         $intro = htmlEncode($_POST['intro']);
         $description = htmlEncode($_POST['description']);
         $add_time = time();
 
+        $condition = "name='{$name}', intro='{$intro}', descript='{$description}', price={$price}, category_id={$c_id}, is_collection=0, add_time={$add_time}, status={$status}, ori_price={$ori_price}";
+
         $img = '';
         if (isset($_FILES['img']) && !empty($_FILES['img']['name'])){
             $upTool = M('UpFileTool');
             $img = $upTool->upfile($_FILES['img']);
+
+            $condition .= ", img='{$img}'";
         }
 
-        $sql = "update sp_goods_info set name='{$name}', intro='{$intro}', descript='{$description}', price={$price}, category_id={$c_id}, is_collection=0, img='{$img}', add_time={$add_time}, status={$status}, ori_price={$ori_price} where id={$id}";
+        $sql = "update sp_goods_info set {$condition} where id={$id}";
 
         $model = M('ProductModel');
         $re = $model->setData($sql);

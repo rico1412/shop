@@ -49,13 +49,11 @@
                     </div>
                     <div class="field">
                         <select name="c_id" class="input w50">
-                            <option value="0">请选择分类</option>
-                            <option value="1">产品分类</option>
-                            <option value="2">产品分类</option>
-                            <option value="3">产品分类</option>
-                            <option value="4">产品分类</option>
+                            {<foreach from=$c_data item="c_val">}
+                            <option value="{<$c_val.id>}">{<if $c_val.dir_tree>=1>}{<'&nbsp;&nbsp;&nbsp;&nbsp;'|str_repeat:($c_val.dir_tree-1)>}├ {</if>} {<$c_val.name>}</option>
+                            {</foreach>}
                         </select>
-                        <div class="tips"></div>
+                        <div class="tipss">请选择商品分类</div>
                     </div>
                 </div>
 
