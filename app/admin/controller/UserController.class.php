@@ -38,11 +38,19 @@ class UserController extends Controller{
     public function showEdh(){
         $id = $_GET['id'];
         $nickname = $_POST['nickname'];
-        $pwd = md5($_POST['pwd']);
+        $pwd = $_POST['pwd'];
         $is_admin = $_POST['is_admin'];
+
+        $condition = "nickname='{$nickname}',is_admin='{$is_admin}'";
+
+        if (empty($pwd)) {
+            $pwd = md5($pwd);
+            $condition .= ",pwd='{$pwd}'";
+        }
+
         //new UserModel模型类对象
         $UserModel = M('UserModel');
-        $sql = "update sp_user set nickname='{$nickname}',pwd='{$pwd}',is_admin='{$is_admin}' where id='{$id}'";
+        $sql = "update sp_user set {$condition} where id='{$id}'";
         $UserModel->setData($sql);
 
         $url = C('URL.main') . "/index.php/?p=admin&m=user&a=showList";
@@ -73,14 +81,21 @@ class UserController extends Controller{
         $acc = $_POST['acc'];
         $pwd = md5($_POST['pwd']);
         $is_admin = $_POST['is_admin'];
+        $regtime = time();
+
         //new UserModel模型类对象
         $UserModel = M('UserModel');
-        $sql = "insert into sp_user(nickname,acc,pwd,is_admin) values ('{$nickname}','{$acc}','{$pwd}','{$is_admin}')";
-        $UserModel->setData($sql);
+        $sql = "insert into sp_user(nickname,acc,pwd,is_admin,regtime) values ('{$nickname}','{$acc}','{$pwd}','{$is_admin}',{$regtime})";
+        $re = $UserModel->setData($sql);
+
+        if ($re) {
+            $str = "新增用户 {$nickname} 成功！";
+        } else {
+            $str = "新增用户 {$nickname} 失败，请联系管理员！";
+        }
 
         $url = C('URL.main') . "/index.php/?p=admin&m=user&a=showList";
-        header('Refresh:2;url=' . $url);
 
-
+        $this->showTips($re, $str, $url);
     }
 }
