@@ -25,6 +25,8 @@ class PrivilegeController extends Controller{
         $code = trim($_POST['code']);
         $rememberMe = isset($_POST['rememberMe']) ? $_POST['rememberMe'] : 'no';
 
+        var_dump($rememberMe);
+
         //开启session机制
         @session_start();
         //检查验证码是否正确
@@ -41,12 +43,12 @@ class PrivilegeController extends Controller{
         $row = $UserModel->getRow($sql);
 
         if ($row) {
-            $_SESSION['admin'] = '$row';//将登录者的信息保存
+            $_SESSION['admin'] = $row;//将登录者的信息保存
             if ($rememberMe == 'yes') {//如果勾选了7天免登录
-                setcookie('rememberMe', $_SESSION['admin']['id'], time() + 7 * 24  * 3600);//设置一条7天有效期的cookie数据
+                setcookie('rememberMe', $_SESSION['admin']['id'], time() + 7 * 24 * 3600);//设置一条7天有效期的cookie数据
             }
 
-            $str = "登录成功";
+            $str = "欢迎你，亲爱的 {$row['nickname']}";
             $url = C('URL.main') . "/index.php/?p=admin&m=index&a=index";
         } else {
             $str = "用户名或密码输入错误，请重新登录！";
@@ -55,6 +57,5 @@ class PrivilegeController extends Controller{
         $this->showTips($row, $str, $url);
         exit();
     }
-
 
 }
