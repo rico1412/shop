@@ -36,10 +36,10 @@ class UserController extends Controller{
     }
 
     public function showEdh(){
-        $id = $_GET['id'];
-        $nickname = $_POST['nickname'];
-        $pwd = $_POST['pwd'];
-        $is_admin = $_POST['is_admin'];
+        $id = htmlspecialchars($_GET['id']);
+        $nickname = htmlspecialchars($_POST['nickname']);
+        $pwd = htmlspecialchars(addslashes($_POST['pwd']));
+        $is_admin = htmlspecialchars($_POST['is_admin']);
 
         $condition = "nickname='{$nickname}',is_admin='{$is_admin}'";
 
@@ -63,10 +63,17 @@ class UserController extends Controller{
         //new UserModel模型类对象
         $UserModel = M('UserModel');
         $sql = "delete from sp_user where id={$id}";
-        $UserModel->setData($sql);
+        $re=$UserModel->setData($sql);
+
+        if ($re) {
+            $str = "删除成功！";
+        } else {
+            $str = "删除失败，请联系管理员！";
+        }
 
         $url = C('URL.main') . "/index.php/?p=admin&m=user&a=showList";
-        header('Refresh:2;url=' . $url);
+
+        $this->showTips($re, $str, $url);
     }
 
     //添加用户
@@ -77,15 +84,17 @@ class UserController extends Controller{
 
     //添加处理用户
     public function showAdh(){
-        $nickname = $_POST['nickname'];
-        $acc = $_POST['acc'];
-        $pwd = md5($_POST['pwd']);
-        $is_admin = $_POST['is_admin'];
+        $nickname = htmlspecialchars($_POST['nickname']);
+        $acc =htmlspecialchars( addslashes($_POST['acc']));
+        $pwd = htmlspecialchars(addslashes(md5($_POST['pwd'])));
+        $is_admin = htmlspecialchars($_POST['is_admin']);
         $regtime = time();
-
+        //调用图像
+        $UpFileTool=M('UpFileTool');
+        $img=$UpFileTool->upfile($_FILES['img']);
         //new UserModel模型类对象
         $UserModel = M('UserModel');
-        $sql = "insert into sp_user(nickname,acc,pwd,is_admin,regtime) values ('{$nickname}','{$acc}','{$pwd}','{$is_admin}',{$regtime})";
+        $sql = "insert into sp_user(nickname,acc,pwd,is_admin,regtime,img) values ('{$nickname}','{$acc}','{$pwd}','{$is_admin}',{$regtime},'{$img}')";
         $re = $UserModel->setData($sql);
 
         if ($re) {

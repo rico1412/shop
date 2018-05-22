@@ -54,7 +54,7 @@ class UpFileTool{
 //            echo '上传文件成功';
             return $fileName;
         }else{//上传失败
-            echo '上传失败，请联系管理员';
+            //echo '上传失败，请联系管理员';
             return false;
         }
 
