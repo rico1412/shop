@@ -1,0 +1,41 @@
+{<include file="common/header.html">}
+    <body>
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong class="icon-reorder"> 订单详情</strong></div>
+
+        <div class="padding border-bottom">
+            <a href="{<C('URL.main')>}/index.php/?p=admin&m=order&a=showList&page={<$page>}"><button type="button" class="button border-yellow"><span class="icon-reply"></span> 返回订单列表</button></a>
+        </div>
+
+        <table class="table table-hover text-center">
+            <tr>
+                <th width="5%">序号</th>
+                <th width="20%">商品名称</th>
+                <th width="20%">商品图片</th>
+                <th width="10%">商品单价</th>
+                <th width="10%">购买数量</th>
+            </tr>
+
+            {<foreach from=$details item="data_val" name="f1">}
+            <tr>
+                <td>{<$smarty.foreach.f1.iteration>}</td>
+                <td><img src="{<C('URL.main')>}/public/admin/img/{<$data_val.img>}" alt="" width="120" height="60" style="width: 50%;height: auto;max-width: 50%;display: block;"></td>
+                <td>{<$data_val.name>}</td>
+                <td>{<$data_val.price>}</td>
+                <td>{<$data_val.count>}</td>
+            </tr>
+            {</foreach>}
+
+            <tr>
+                <td colspan="8">
+                    <div class="pagelist">
+                        <!--{<$pageHtml>}-->
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    </div>
+    </body>
+    </html>
