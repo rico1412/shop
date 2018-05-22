@@ -1,0 +1,41 @@
+{<include file="common/header.html">}
+    <body>
+    <div class="panel admin-panel">
+        <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加子分类</strong></div>
+        <div class="body-content">
+            <form method="post" class="form-x" action="{<C('URL.main')>}/index.php?p=admin&m=category&a=ushowAd">
+                <div class="form-group">
+                    <div class="label">
+                        <label>子分类名称：</label>
+                    </div>
+                    <div class="field">
+                        <input type="hidden" name="id" value="{<$id>}" />
+                        <input type="text" class="input w50" value="" name="name" data-validate="required:请输入子分类名称" placeholder="请输入子分类名称"/>
+                        <div class="tips"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label>父分类名称：</label>
+                    </div>
+                    <div class="field">
+                        <span class="input w50" >{<$parent_name>}</span>
+                        <div class="tips"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="label">
+                        <label></label>
+                    </div>
+                    <div class="field">
+                        <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    </body>
+    </html>

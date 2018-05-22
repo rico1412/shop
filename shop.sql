@@ -19,6 +19,8 @@ alter table sp_goods_info add add_time int unsigned not null default 0 comment '
 
 alter table sp_goods_info add status tinyint unsigned not null default 0 comment '商品状态 0 下架 1 上架';
 
+alter table sp_goods_info add ori_price decimal(10, 2) not null default 0 comment '商品原价';
+
 create table sp_category (
   id int unsigned primary key auto_increment,
   name varchar(30) not null default '' comment '分类名称',
@@ -33,4 +35,21 @@ create table sp_user (
   is_admin tinyint unsigned not null default 0 comment '是否是管理员 0 不是 1 是',
   regtime int unsigned not null default 0 comment '注册时间',
   img varchar(255) not null default '' comment '用户头像'
+)charset utf8;
+
+create table sp_order (
+  id int unsigned primary key auto_increment,
+  order_id varchar(50) not null default '' comment '订单号',
+  order_price decimal(10, 2) not null default 0 comment '订单金额',
+  buyer_id int unsigned not null default 0 comment '买家id',
+  buyer_nickname varchar(50) not null default '' comment '买家昵称',
+  order_time int unsigned not null default 0 comment '下单时间',
+  status tinyint unsigned not null default 0 comment '订单状态 0：未处理 1：已处理'
+)charset utf8;
+
+create table sp_order_detail (
+  id int unsigned primary key auto_increment,
+  p_id int unsigned not null default 0 comment '商品id',
+  count int unsigned not null default 1 comment '购买数量',
+  order_id varchar(50) not null default '' comment '订单号'
 )charset utf8;

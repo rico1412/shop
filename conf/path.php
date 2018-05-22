@@ -7,4 +7,4 @@
  */
 
 # 项目根目录的路径
-$root_path = 'F:/www/shop/';
+$root_path = 'D:/phpstorm/shop/';
