@@ -30,7 +30,11 @@ class ProductsController extends Controller {
 
     	$sql="select id,name,intro,price,img from sp_goods_info where 1";
     	$jihes=$ProductsModel->getRows($sql);
+
+        $sql="select id,name from sp_category where 1";
+        $top=$ProductsModel->getRows($sql);
     	// var_dump($jihe);die;
+        $this->assign('top',$top); //把查询出的数据分配给模板
     	$this->assign('jihe',$jihe);//把查询出的数据分配给模板
     	$this->assign('jihes',$jihes);//把查询出的数据分配给模板
     	$this->display('single-product.html');//渲染模板
