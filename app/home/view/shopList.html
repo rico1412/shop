@@ -13,7 +13,7 @@
                     <div class="col-md-12">
                         <div class="location">
                             <ul>
-                                <li><a href="index.html" title="go to homepage">Home<span>/</span></a>  </li>
+                                <li><a href="index.html" title="go to homepage">首页<span>/</span></a>  </li>
                                 <li><strong> shop list</strong></li>
                             </ul>
                         </div>
@@ -23,55 +23,55 @@
                     <div class="col-sm-3">
                         <div class="product-sidebar">
                             <div class="sidebar-title">
-                                <h2>Shopping Options</h2>
+                                <h2>购物选择</h2>
                             </div>
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
-                                    <h3>Category</h3>
+                                    <h3>商品分类</h3>
                                 </div>
                                 <div class="single-sidebar-content">
                                     <ul>
-                                        <li><a href="#">Dresses (4)</a></li>
-                                        <li><a href="#">shoes (6)</a></li>
-                                        <li><a href="#">Handbags (1)</a></li>
-                                        <li><a href="#">Clothing (3)</a></li>
+                                        <li><a href="#">连衣裙 (4)</a></li>
+                                        <li><a href="#">鞋 (6)</a></li>
+                                        <li><a href="#">手袋 (1)</a></li>
+                                        <li><a href="#">服装 (3)</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
-                                    <h3>Color</h3>
+                                    <h3>商品颜色</h3>
                                 </div>
                                 <div class="single-sidebar-content">
                                     <ul>
-                                        <li><a href="#">Black (2)</a></li>
-                                        <li><a href="#">Blue (2)</a></li>
-                                        <li><a href="#">Green (4)</a></li>
-                                        <li><a href="#">Grey (2)</a></li>
-                                        <li><a href="#">Red (2)</a></li>
-                                        <li><a href="#">White (2)</a></li>
+                                        <li><a href="#">黑色 (2)</a></li>
+                                        <li><a href="#">蓝色 (2)</a></li>
+                                        <li><a href="#">绿色(4)</a></li>
+                                        <li><a href="#">灰色 (2)</a></li>
+                                        <li><a href="#">红色 (2)</a></li>
+                                        <li><a href="#">白色 (2)</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
-                                    <h3>Manufacturer</h3>
+                                    <h3>商品生产厂家</h3>
                                 </div>
                                 <div class="single-sidebar-content">
                                     <ul>
-                                        <li><a href="#">Calvin Klein (2)</a></li>
-                                        <li><a href="#">Diesel (2)</a></li>
-                                        <li><a href="#">option value (1)</a></li>
-                                        <li><a href="#">Polo (2)</a></li>
-                                        <li><a href="#">store view (4)</a></li>
-                                        <li><a href="#">Tommy Hilfiger (2)</a></li>
-                                        <li><a href="#">will be used (1)</a></li>
+                                        <li><a href="#">中国 (2)</a></li>
+                                        <li><a href="#">中国 (2)</a></li>
+                                        <li><a href="#">中国 (1)</a></li>
+                                        <li><a href="#">中国 (2)</a></li>
+                                        <li><a href="#">中国  (4)</a></li>
+                                        <li><a href="#">中国  (2)</a></li>
+                                        <li><a href="#">中国  (1)</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="single-sidebar price">
                                 <div class="single-sidebar-title">
-                                    <h3>Price</h3>
+                                    <h3>筛选价格</h3>
                                 </div>
                                 <div class="single-sidebar-content">
                                     <div class="price-range">
@@ -81,7 +81,7 @@
                                                 <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
                                             </div>
                                         </div>
-                                        <button type="submit"> <span>search</span> </button>
+                                        <button type="submit"> <span>搜索</span> </button>
                                     </div>
                                 </div>
                             </div>
@@ -116,11 +116,11 @@
                                 </li>
                             </ul>
                             <div class="sort-by">
-                                <label>Sort By</label>
+                                <label>排序的方式</label>
                                 <select name="sort" >
-                                    <option value="#" selected >Position</option>
-                                    <option value="#">Name</option>
-                                    <option value="#">Price</option>
+                                    <option value="#" selected >位置</option>
+                                    <option value="#">名称</option>
+                                    <option value="#">价格</option>
                                 </select>
                                 <a href="#" title="Set Descending Direction">
                                     <img src="{<C('URL.main')>}/public/home/img/product/i_asc_arrow.gif" alt="">
@@ -480,7 +480,7 @@
                                                   {<foreach from=$datas key='datas_key' item='datas_val' name='f1'>}
                                                     <div class="list-product-info">
                                                   
-                                                        <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showintro&id={<$smarty.foreach.f1.iteration>}">" class="list-product-name">{<$datas_val.name>}</a>
+                                                        <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showintro&id={<$smarty.foreach.f1.iteration>}" class="list-product-name" style="padding-top: 100px">{<$datas_val.name>}</a>
                                                         <div class="price-rating">
                                                             <span class="old-price">{<$datas_val.ori_price>}</span>
                                                             <span>{<$datas_val.price>}</span>
@@ -498,7 +498,6 @@
                                                             <p>{<$datas_val.intro>}
                                                             <a href="single-product.html">Learn More</a> </p>
                                                         </div>
-                                                       
                                                     </div>
                                                      {</foreach>}
                                                 </div>
