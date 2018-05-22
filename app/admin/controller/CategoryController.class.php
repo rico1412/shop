@@ -56,13 +56,10 @@ class CategoryController extends Controller {
     public function uedit(){
     	$id=$_GET['id'];
     	$name=htmlEncode($_POST['name']);
-    	// $var_dump($name);die;
-    	$catModel=M('CatModel'); 
+    	$catModel=M('CatModel');
     	$sql="update sp_category set name='{$name}' where id={$id}";
-    	// var_dump($sql);die;
     	$result=$catModel->setData($sql);
-    	// var_dump($result);die;
-        if ($sql) {
+        if ($result) {
             $str = "修改成功！";
         } else {
             $str = "修改失败，请联系管理员！";
@@ -78,12 +75,10 @@ class CategoryController extends Controller {
     public function drop(){
     	//获取要的分类的id
     	$id=$_GET['id'];
-    	// var_dump($id);die
     	$catModel=M('CatModel');
     	$sql="delete from sp_category where id={$id}";//删除分类的sql语句
-    	// var_dump($sql);die;
     	$re=$catModel->setData($sql);//执行sql语句
-        if ($sql) {
+        if ($re) {
             $str = "删除成功！";
         } else {
             $str = "删除失败，请联系管理员！";

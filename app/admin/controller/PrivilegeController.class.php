@@ -55,13 +55,14 @@ class PrivilegeController extends Controller{
         $this->showTips($row, $str, $url);
         exit();
     }
-    public function output()
-    {
+
+    public function output(){
         unset($_SESSION['admin']);
-        setcookie('admin','');
-        echo "退出成功";
+        setcookie('rememberMe','');
+        $str = "退出成功";
         $url = C('URL.main') . "/index.php/?p=admin&m=Privilege&a=showLogin";
         header('Refresh:2;url='.$url);
+        $this->showTips(true, $str, $url);
     }
 
 }
