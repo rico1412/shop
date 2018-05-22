@@ -119,7 +119,7 @@ class CaptchaTool{
 
         //存储验证码到session中
         @session_start();
-        $_SESSION['captcha_code'] = $str;
+        $_SESSION['code'] = $str;
 
         //分配一个写字的随机色
         $col = $this->getColor();

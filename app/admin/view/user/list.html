@@ -1,0 +1,41 @@
+{<include file="common/header.html">}
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head"><strong class="icon-reorder"> 用户列表</strong></div>
+
+  <table class="table table-hover text-center">
+    <tr>
+      <th width="5%">序号</th>
+      <th width="5%">#ID</th>
+      <th width="15%">账号</th>
+      <th width="10%">昵称</th>
+      <th width="10%">注册时间</th>
+      <th width="10%">权限</th>
+      <th width="10%">操作</th>
+    </tr>
+    {<foreach from=$re item='re_val' name='f1'>}
+    <tr>
+      <td>{<$smarty.foreach.f1.iteration>}</td>
+      <td>{<$re_val.id>}</td>
+      <td>{<$re_val.acc>}</td>
+      <td>{<$re_val.nickname>}</td>
+      <td>{<$re_val.regtime|date_format:'%Y-%m-%d %H:%M:%S'>}</td>
+      <td>{<if $re_val.is_admin==0>}普通用户{<else>}<span style="color: red">管理员</span>{</if>}</td>
+      <td>
+        <div class="button-group">
+          <a class="button border-main" href="{<C('URL.main')>}/index.php?p=admin&m=user&a=showEdd&id={<$re_val.id>}"><span class="icon-edit"></span> 修改</a>
+          <a class="button border-red" href="{<C('URL.main')>}/index.php?p=admin&m=user&a=showDat&id={<$re_val.id>}" onclick="return del()"><span class="icon-trash-o"></span> 删除</a>
+        </div>
+      </td>
+    </tr>
+    {</foreach>}
+  </table>
+</div>
+<script type="text/javascript">
+function del(){
+    return confirm("您确定要删除吗?");
+}
+</script>
+</div>
+</body>
+</html>
