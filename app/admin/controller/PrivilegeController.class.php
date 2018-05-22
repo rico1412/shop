@@ -25,8 +25,6 @@ class PrivilegeController extends Controller{
         $code = trim($_POST['code']);
         $rememberMe = isset($_POST['rememberMe']) ? $_POST['rememberMe'] : 'no';
 
-        var_dump($rememberMe);
-
         //开启session机制
         @session_start();
         //检查验证码是否正确

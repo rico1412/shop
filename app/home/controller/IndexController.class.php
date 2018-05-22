@@ -8,10 +8,10 @@
 
 namespace home\controller;
 
-use core\Controller;
 
-class IndexController extends Controller {
+class IndexController extends HomeController {
     public function index(){
+
         $this->display('index.html');
     }
 }
