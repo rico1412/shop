@@ -3,13 +3,20 @@
     <div class="panel admin-panel margin-top">
         <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>添加用户</strong></div>
         <div class="body-content">
-            <form method="post" class="form-x" action="{<C('URL.main')>}/index.php?p=admin&m=user&a=showAdh">
+            <form method="post" class="form-x" action="{<C('URL.main')>}/index.php?p=admin&m=user&a=showAdh" enctype="multipart/form-data">
                 <div class="form-group">
                     <div class="label">
                         <label>昵称：</label>
                     </div>
                     <div class="form-group">
                         <input type="text" class="input w50" name="nickname" value="" />
+                        <div class="tips"></div>
+                    </div>
+                    <div class="label">
+                        <label>头像：</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" class="input w50" name="img" value="" />
                         <div class="tips"></div>
                     </div>
                     <div class="label">

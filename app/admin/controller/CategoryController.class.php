@@ -62,13 +62,15 @@ class CategoryController extends Controller {
     	// var_dump($sql);die;
     	$result=$catModel->setData($sql);
     	// var_dump($result);die;
-    	if($result){
-    		echo "修改成功";
-    	}else{
-    		echo "修改失败";
-    	}
-    	$url=C('URL.main').'/index.php?p=admin&m=category&a=showList';
-    	header('Refresh:2;url='.$url); 
+        if ($sql) {
+            $str = "修改成功！";
+        } else {
+            $str = "修改失败，请联系管理员！";
+        }
+
+        $url = C('URL.main') . "/index.php/?p=admin&m=Category&a=showList";
+
+        $this->showTips($sql, $str, $url);
     }
 
 
@@ -81,19 +83,21 @@ class CategoryController extends Controller {
     	$sql="delete from sp_category where id={$id}";//删除分类的sql语句
     	// var_dump($sql);die;
     	$re=$catModel->setData($sql);//执行sql语句
-    	if($re){//如果执行成功
-    		echo "删除成功";
-    	}else{//否则
-    		echo "删除失败";
-    	}
-    	$url=C('URL.main').'/index.php?p=admin&m=category&a=showList';
-    	header('Refresh:2;url='.$url);   	
+        if ($sql) {
+            $str = "删除成功！";
+        } else {
+            $str = "删除失败，请联系管理员！";
+        }
+
+        $url = C('URL.main') . "/index.php/?p=admin&m=Category&a=showList";
+
+        $this->showTips($sql, $str, $url);
     }
 
 
     public function showAd(){
     	$id=$_GET['id'];
-    	$name=$_GET['name'];
+    	$name=htmlspecialchars($_GET['name']);
     	$this->assign('id', $id);
     	$this->assign('parent_name', $name);
     	$this->display('category/add.html');
@@ -114,5 +118,4 @@ class CategoryController extends Controller {
     	$this->showTips($re, $str, $url);
     	exit;
     }
-
 }

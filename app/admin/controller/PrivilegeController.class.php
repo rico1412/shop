@@ -20,9 +20,9 @@ class PrivilegeController extends Controller{
     //登录处理方法
     public function checkLogin(){
         //接收账号,密码,验证码的值
-        $acc = trim($_POST['acc']);
-        $pwd = md5(trim($_POST['pwd']));
-        $code = trim($_POST['code']);
+        $acc = htmlspecialchars(addslashes(trim($_POST['acc'])));
+        $pwd = htmlspecialchars(addslashes(md5(trim($_POST['pwd']))));
+        $code = htmlspecialchars(addslashes(trim($_POST['code'])));
         $rememberMe = isset($_POST['rememberMe']) ? $_POST['rememberMe'] : 'no';
 
         var_dump($rememberMe);
@@ -56,6 +56,14 @@ class PrivilegeController extends Controller{
         }
         $this->showTips($row, $str, $url);
         exit();
+    }
+    public function output()
+    {
+        unset($_SESSION['admin']);
+        setcookie('admin','');
+        echo "退出成功";
+        $url = C('URL.main') . "/index.php/?p=admin&m=Privilege&a=showLogin";
+        header('Refresh:2;url='.$url);
     }
 
 }
