@@ -36,11 +36,11 @@
                                         <i class="fa fa-bars"></i>
                                     </a>
                                     <ul>
-                                        <li><a href="my-account.html">my account</a></li>
+                                        <li><a href="{<C('URL.main')>}/index.php?p=home&m=account&a=show">my account</a></li>
                                         <li><a href="wishlist.html">my wishlist</a></li>
                                         <li><a href="cart.html">my cart</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="{<C('URL.main')>}/index.php?p=home&m=show&a=blog">Blog</a></li>
                                         <li><a href="#">Log in</a></li>
                                     </ul>
                                 </li>
@@ -104,7 +104,7 @@
                                 </li>
                                 {<foreach from=$cats[0] item="cats_val">}
                                 <li class="mega-women"><a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showList&c_id={<$cats_val.id>}">{<$cats_val.name>}</a>
-                                    <div class="mega-menu women">
+                                    <div class="mega-menu men">
                                         <div class="part-1">
                                             {<foreach from=$cats[$cats_val.id] item="cat_val">}
                                             <span>
@@ -117,11 +117,13 @@
                                             </span>
                                             {</foreach>}
                                         </div>
+                                        {<if $cats_val.id == 1>}
                                         <div class="part-2">
                                             <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showList">
                                                 <img src="{<C('URL.main')>}/public/home/img/banner/menu-banner.png" alt="">
                                             </a>
                                         </div>
+                                        {</if>}
                                     </div>
                                 </li>
                                 {</foreach>}
