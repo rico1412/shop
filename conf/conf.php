@@ -5,12 +5,12 @@ $config = array(
     //数据库配置
     'db' => [
         'type' =>  'mysql',//数据库类型
-        'host' =>  '192.168.69.40',//数据库IP地址
+        'host' =>  'localhost',//数据库IP地址
         'port' =>  3306,//端口号
         'char' =>  'utf8',//字符集
         'dbname' =>  'shop',//默认选择的数据库
         'acc' =>  'root',//账号
-        'pwd' =>  ''//密码
+        'pwd' =>  '123'//密码
     ],
 
     //默认访问的页面
