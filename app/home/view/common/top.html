@@ -58,7 +58,7 @@
                         </div>
                         <div class="cart-menu">
                             <ul>
-                                <li><a href="#"> <img src="{<C('URL.main')>}/public/home/img/icon-cart.png" alt=""> <span>{<count($cart_datas)>}</span> </a>
+                                <li><a href="{<C('URL.main')>}/index.php?p=home&m=cart&a=showCart"> <img src="{<C('URL.main')>}/public/home/img/icon-cart.png" alt=""> <span>{<count($cart_datas)>}</span> </a>
                                     <div class="cart-info">
                                         <ul>
                                             {<foreach from=$cart_datas item="data">}
@@ -70,8 +70,6 @@
                                                     <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showIntro&id={<$data.id>}">{<$data.name>}</a>
                                                     <p>{<$data.qtybutton>} x ￥{<$data.price>}</p>
                                                 </div>
-                                                <div class="btn-edit"></div>
-                                                <div class="btn-remove"></div>
                                             </li>
                                             {</foreach>}
                                         </ul>
@@ -102,6 +100,8 @@
                         <nav>
                             <ul>
                                 <li><a href="{<C('URL.main')>}/index.php?p=home&m=index&a=index">首页</a>
+                                </li>
+                                <li><a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showList">全部商品</a>
                                 </li>
                                 {<foreach from=$cats[0] item="cats_val">}
                                 <li class="mega-women"><a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showList&c_id={<$cats_val.id>}">{<$cats_val.name>}</a>

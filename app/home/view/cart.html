@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="location">
                             <ul>
-                                <li><a href="index.html" title="go to homepage">Home<span>/</span></a>  </li>
+                                <li><a href="{<C('URL.main')>}/index.php?p=home&m=index&a=index" title="go to homepage" title="go to homepage">首页<span>/</span></a>  </li>
                                 <li><strong> Shopping cart</strong></li>
                             </ul>
                         </div>
@@ -21,11 +21,12 @@
                             <table class="table-bordered table table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="cart-item-img" width="20%">商品图片</th>
-                                        <th class="cart-product-name" width="40%">商品名称</th>
+                                        <th class="cart-item-img" width="15%">商品图片</th>
+                                        <th class="cart-product-name" width="30%">商品名称</th>
                                         <th class="unit-price" width="15%">单价</th>
                                         <th class="quantity" width="10%">数量</th>
                                         <th class="subtotal" width="15%">小计</th>
+                                        <th class="remove-icon" width="10%">删除</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
@@ -47,6 +48,11 @@
                                         </td>
                                         <td class="subtotal">
                                             <span>￥{<$data.price*$data.qtybutton>}</span>
+                                        </td>
+                                        <td class="remove-icon">
+                                            <a href="{<C('URL.main')>}/index.php?p=home&m=cart&a=del_h&id={<$data.id>}">
+                                                <img src="{<C('URL.main')>}/public/home/img/cart/btn_remove.png" alt="">
+                                            </a>
                                         </td>
                                     </tr>
                                     {</foreach>}

@@ -73,11 +73,20 @@ class ProductsController extends HomeController{
         $id = $_GET['id'];
         $qtybutton = !empty($_POST['qtybutton']) ? $_POST['qtybutton'] : 1;
         $cartUnSer = isset($_COOKIE['Cart']) ? unserialize($_COOKIE['Cart']) : array();
-        $cartUnSer[] = array(
-            'id' => $id,
-            'qtybutton' => $qtybutton
-        );
-        echo "<pre/>";
+
+        if (isset($cartUnSer[$id])){
+            $oldnum = $cartUnSer[$id]['qtybutton'];
+            $cartUnSer[$id] = array(
+                'id' => $id,
+                'qtybutton' => $qtybutton + $oldnum
+            );
+        } else {
+            $cartUnSer[$id] = array(
+                'id' => $id,
+                'qtybutton' => $qtybutton
+            );
+        }
+
         $cart = serialize($cartUnSer);
         setcookie('Cart', $cart, time() + 7*24*3600);
 

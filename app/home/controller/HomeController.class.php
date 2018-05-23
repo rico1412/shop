@@ -35,7 +35,7 @@ class HomeController extends Controller {
                 $row['qtybutton'] = $num;
                 $data[] = $row;
 
-                $totalPrice += $row['price'];
+                $totalPrice += ($row['price'] * $row['qtybutton']);
             }
 
         }
