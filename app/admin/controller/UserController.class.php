@@ -48,13 +48,30 @@ class UserController extends Controller{
             $condition .= ",pwd='{$pwd}'";
         }
 
+        //调用图像
+        $img = '';
+        if (isset($_FILES['img']) && !empty($_FILES['img']['name'])) {
+            $UpFileTool = M('UpFileTool');
+            $img = $UpFileTool->upfile($_FILES['img']);
+        }
+
+        if ($img) {
+            $condition .= ",img='{$img}'";
+        }
+
         //new UserModel模型类对象
         $UserModel = M('UserModel');
         $sql = "update sp_user set {$condition} where id='{$id}'";
-        $UserModel->setData($sql);
+        $re = $UserModel->setData($sql);
+
+        if ($re) {
+            $str = "编辑成功！";
+        } else {
+            $str = "编辑失败，请联系管理员！";
+        }
 
         $url = C('URL.main') . "/index.php/?p=admin&m=user&a=showList";
-        header('Refresh:2;url=' . $url);
+        $this->showTips($re, $str, $url);
     }
 
     //删除
@@ -89,12 +106,23 @@ class UserController extends Controller{
         $pwd = htmlspecialchars(addslashes(md5($_POST['pwd'])));
         $is_admin = htmlspecialchars($_POST['is_admin']);
         $regtime = time();
+
+        $condition = "null, '{$acc}','{$pwd}','{$nickname}','{$is_admin}',{$regtime}";
+
         //调用图像
-        $UpFileTool=M('UpFileTool');
-        $img=$UpFileTool->upfile($_FILES['img']);
+        $img = '';
+        if (isset($_FILES['img']) && !empty($_FILES['img']['name'])) {
+            $UpFileTool = M('UpFileTool');
+            $img = $UpFileTool->upfile($_FILES['img']);
+        }
+
+        if ($img) {
+            $condition .= ",'{$img}'";
+        }
+
         //new UserModel模型类对象
         $UserModel = M('UserModel');
-        $sql = "insert into sp_user(nickname,acc,pwd,is_admin,regtime,img) values ('{$nickname}','{$acc}','{$pwd}','{$is_admin}',{$regtime},'{$img}')";
+        $sql = "insert into sp_user value ($condition)";
         $re = $UserModel->setData($sql);
 
         if ($re) {

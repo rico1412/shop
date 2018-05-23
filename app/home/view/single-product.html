@@ -7,7 +7,7 @@
                     <div class="col-md-12">
                         <div class="location">
                             <ul>
-                                <li><a href="index.html" title="go to homepage">Home<span>/</span></a>  </li>
+                                <li><a href="{<C('URL.main')>}/index.php?p=home&m=index&a=index" title="go to homepage">Home<span>/</span></a>  </li>
                                 <li><strong> Fusce aliquam</strong></li>
                             </ul>
                         </div>
@@ -23,7 +23,7 @@
                     <div class="col-sm-6">
                         <div class="single-product-img">
                             <div class="single-pro-main-image">
-                                <a href="#"><img id="optima_zoom" src="{<C('URL.main')>}/public/home/img/product/{<$jihe.img>}" data-zoom-image="{<C('URL.main')>}/public/home/img/product/{<$jihe.img>}" alt="optima"/></a>
+                                <a href="#"><img id="optima_zoom" src="{<C('URL.main')>}/public/admin/img/{<$jihe.img>}" data-zoom-image="{<C('URL.main')>}/public/admin/img/{<$jihe.img>}" alt=""/></a>
                             </div>
                         </div>
                         
@@ -48,7 +48,7 @@
                                 <p>Availability:<span> In stock</span></p>
                             </div>
                             <div class="item-price">
-                                <span>{<$jihe.price>}</span>
+                                <span>￥{<$jihe.price>}</span>
                             </div>
                             <div class="single-product-info">
                                 <p>{<$jihe.intro>}</p>
@@ -77,13 +77,13 @@
                             </div>
                            
                             <div class="cart-item">
-                                <div class="price-box">
-                                    <span>$170</span>
-                                </div>
+                                <!--<div class="price-box">-->
+                                    <!--<span>￥{<$jihe.ori_price>}</span>-->
+                                <!--</div>-->
                                 <div class="single-cart">
                                     <div class="cart-plus-minus">
                                         <label>Qty: </label>
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
+                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
                                     </div>
                                     <button class="cart-btn">添加到购物车</button>
                                 </div>
@@ -109,7 +109,7 @@
                             <div class="tab-content single-product-page">
                                 <div role="tabpanel" class="tab-pane fade in active" id="tab1">
                                     <div class="single-p-tab-content">
-                                        <p>{<$jihe.descript>}</p>
+                                        <p>{<htmlDecode($jihe.descript)>}</p>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="tab2">
@@ -256,7 +256,7 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="{<C('URL.main')>}/public/home/img/product/{<$jihe.img>}" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/25.png" alt="" class="primary-img">
                                         <img src="{<C('URL.main')>}/public/home/img/product/26.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
@@ -275,10 +275,10 @@
                                 </div>
                                 <div class="product-price">
                                     <div class="product-name">
-                                        <a href="single-product.html" title="Fusce aliquam">{<$jihe.name>}</a>
+                                        <a href="single-product.html" title="Fusce aliquam">Fusce aliquam</a>
                                     </div>
                                     <div class="price-rating">
-                                        <span>{<$jihe.price>}</span>
+                                        <span>$170.00</span>
                                     </div>
                                 </div>
                             </div>
@@ -287,8 +287,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/23.png" alt="" class="primary-img">
-                                        <img src="img/product/24.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/23.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/24.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -318,8 +318,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/21.png" alt="" class="primary-img">
-                                        <img src="img/product/22.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/21.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/22.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -349,8 +349,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/19.png" alt="" class="primary-img">
-                                        <img src="img/product/20.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/19.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/20.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -380,8 +380,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/17.png" alt="" class="primary-img">
-                                        <img src="img/product/18.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/17.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/18.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -411,8 +411,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/15.png" alt="" class="primary-img">
-                                        <img src="img/product/16.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/15.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/16.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -442,8 +442,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/13.png" alt="" class="primary-img">
-                                        <img src="img/product/14.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/13.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/14.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -473,8 +473,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/11.png" alt="" class="primary-img">
-                                        <img src="img/product/12.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/11.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/12.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -521,7 +521,7 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="{<C('URL.main')>}/public/home/img/product/{<$jihe.img>}" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/25.png" alt="" class="primary-img">
                                         <img src="{<C('URL.main')>}/public/home/img/product/26.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
@@ -539,8 +539,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/23.png" alt="" class="primary-img">
-                                        <img src="img/product/24.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/23.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/24.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -557,8 +557,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/21.png" alt="" class="primary-img">
-                                        <img src="img/product/22.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/21.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/22.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -575,8 +575,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/19.png" alt="" class="primary-img">
-                                        <img src="img/product/20.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/19.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/20.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -593,8 +593,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/17.png" alt="" class="primary-img">
-                                        <img src="img/product/18.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/17.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/18.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -611,8 +611,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/15.png" alt="" class="primary-img">
-                                        <img src="img/product/16.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/15.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/16.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -629,8 +629,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/13.png" alt="" class="primary-img">
-                                        <img src="img/product/14.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/13.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/14.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -647,8 +647,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/11.png" alt="" class="primary-img">
-                                        <img src="img/product/12.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/11.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/12.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">

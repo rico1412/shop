@@ -34,4 +34,4 @@ include CORE_PATH . 'Model.class.php';
 //引入NewsController控制器类文件
 //include './app/admin/controller/NewsController.class.php';
 //include APP_ADMIN_CONTROLLER_PATH . 'NewsController.class.php';
-//include APP_PATH . 'home/controller/IndexController.class.php';
+//include APP_PATH . 'home/controller/IndexController.class.class.php';

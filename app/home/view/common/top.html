@@ -9,22 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 col-md-offset-3 col-sm-9 hidden-xs">
-                    <div class="site-option">
-                        <ul>
-                            <li class="currency"><a href="#">USD <i class="fa fa-angle-down"></i> </a>
-                                <ul class="sub-site-option">
-                                    <li><a href="#">Eur</a></li>
-                                    <li><a href="#">Usd</a></li>
-                                </ul>
-                            </li>
-                            <li class="language"><a href="#">English <i class="fa fa-angle-down"></i> </a>
-                                <ul class="sub-site-option">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">English2</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+
                     <div class="call-support">
                         <p>Call support free: <span> (800) 123 456 789</span></p>
                     </div>
@@ -51,11 +36,11 @@
                                         <i class="fa fa-bars"></i>
                                     </a>
                                     <ul>
-                                        <li><a href="my-account.html">my account</a></li>
+                                        <li><a href="{<C('URL.main')>}/index.php?p=home&m=account&a=show">my account</a></li>
                                         <li><a href="wishlist.html">my wishlist</a></li>
                                         <li><a href="cart.html">my cart</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="{<C('URL.main')>}/index.php?p=home&m=show&a=blog">Blog</a></li>
                                         <li><a href="#">Log in</a></li>
                                     </ul>
                                 </li>
@@ -100,6 +85,7 @@
             </div>
         </div>
     </div>
+
     <div class="mainmenu-area home2 product-items">
         <div class="container">
             <div class="row">
@@ -114,97 +100,43 @@
                     <div class="mainmenu">
                         <nav>
                             <ul>
-                                <li><a href="index.html">首页</a>
+                                <li><a href="{<C('URL.main')>}/index.php?p=home&m=index&a=index">首页</a>
                                 </li>
-                                <li class="mega-women"><a href="shop.html">女装</a>
-                                    <div class="mega-menu women">
+                                {<foreach from=$cats[0] item="cats_val">}
+                                <li class="mega-women"><a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showList&c_id={<$cats_val.id>}">{<$cats_val.name>}</a>
+                                    <div class="mega-menu men">
                                         <div class="part-1">
-                                                    <span>
-                                                        <a href="#">连衣裙</a>
-                                                        <a href="#">超短裙</a>
-                                                        <a href="#">内衣</a>
-                                                        <a href="#">睡衣</a>
-                                                        <a href="#">裤子</a>
-                                                    </span>
+                                            {<foreach from=$cats[$cats_val.id] item="cat_val">}
                                             <span>
-                                                        <a href="#">连衣裙</a>
-                                                        <a href="#">超短裙</a>
-                                                        <a href="#">内衣</a>
-                                                        <a href="#">睡衣</a>
-                                                        <a href="#">裤子</a>
-                                                    </span>
-                                            <span>
-                                                        <a href="#">连衣裙</a>
-                                                        <a href="#">超短裙</a>
-                                                        <a href="#">内衣</a>
-                                                        <a href="#">睡衣</a>
-                                                        <a href="#">裤子</a>
-                                                    </span>
-                                            <span>
-                                                        <a href="#">连衣裙</a>
-                                                        <a href="#">超短裙</a>
-                                                        <a href="#">内衣</a>
-                                                        <a href="#">睡衣</a>
-                                                        <a href="#">裤子</a>
-                                                    </span>
+                                                <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showList&c_id={<$cat_val.id>}">{<$cat_val.name>}</a>
+                                                {<if isset($cats[$cat_val.id])>}
+                                                {<foreach from=$cats[$cat_val.id] item="item_val">}
+                                                <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showList&c_id={<$item_val.id>}">{<$item_val.name>}</a>
+                                                {</foreach>}
+                                                {</if>}
+                                            </span>
+                                            {</foreach>}
                                         </div>
+                                        {<if $cats_val.id == 1>}
                                         <div class="part-2">
-                                            <a href="#">
+                                            <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showList">
                                                 <img src="{<C('URL.main')>}/public/home/img/banner/menu-banner.png" alt="">
                                             </a>
                                         </div>
+                                        {</if>}
                                     </div>
                                 </li>
-                                <li class="mega-men"><a href="shop.html">男装</a>
-                                    <div class="mega-menu men">
-                                                <span>
-                                                    <a href="#">衣服</a>
-                                                    <a href="#">寸衫</a>
-                                                    <a href="#">外套</a>
-                                                </span>
-                                        <span>
-                                                    <a href="#">裤子</a>
-                                                    <a href="#">西裤</a>
-                                                    <a href="#">牛仔裤</a>
-                                                </span>
-                                        <span>
-                                                    <a href="#">包</a>
-                                                    <a href="#">手提包</a>
-                                                    <a href="#">单肩包</a>
-                                                </span>
-                                    </div>
-                                </li>
-                                <li class="mega-footwear"><a href="shop.html">鞋子</a>
-                                    <div class="mega-menu footwear">
-                                                <span>
-                                                    <a href="#">男士鞋类</a>
-                                                    <a href="#">球鞋</a>
-                                                </span>
-                                        <span>
-                                                    <a href="#">女士鞋类</a>
-                                                    <a href="#">高跟鞋</a>
-                                                </span>
-                                    </div>
-                                </li>
-                                <li class="mega-jewellery"><a href="shop.html">首饰</a>
-                                    <div class="mega-menu jewellery">
-                                                <span>
-                                                    <a href="#">项链</a>
-                                                </span>
-                                    </div>
-                                </li>
-                                <li><a href="shop.html">accessories</a></li>
+                                {</foreach>}
                                 <li><a href="#">客服服务</a>
                                     <div class="sub-menu pages">
                                             <span>
-                                                <a href="about-us.html">关于我们</a>
+                                                <a href="{<C('URL.main')>}/index.php?p=home&m=show&a=about">关于我们</a>
                                             </span>
                                             <span>
-                                                <a href="blog.html">博客</a>
+                                                <a href="{<C('URL.main')>}/index.php?p=home&m=show&a=blog">博客</a>
                                             </span>
-
                                             <span>
-                                                <a href="contact.html">联系我们</a>
+                                                <a href="{<C('URL.main')>}/index.php?p=home&m=show&a=contact">联系我们</a>
                                             </span>
                                     </div>
                                 </li>
