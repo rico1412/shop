@@ -80,13 +80,18 @@
                                 <div class="price-box">
                                     <span>$170</span>
                                 </div>
-                                <div class="single-cart">
-                                    <div class="cart-plus-minus">
-                                        <label>Qty: </label>
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
-                                    </div>
-                                    <button class="cart-btn">Add to cart</button>
-                                </div>
+                                <form action="{<C('URL.main')>}/index.php?p=home&m=products&a=showcartadd&id={<$id>}" method="post">
+                                    <input type="hidden" name="img" value="{<$jihe.img>}">
+                                    <input type="hidden" name="name" value="{<$jihe.name>}">
+                                    <input type="hidden" name="price" value="{<$jihe.price>}">
+                                    <div class="single-cart">
+                                        <div class="cart-plus-minus">
+                                            <label>Qty: </label>
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
+                                        </div>
+                                        <button class="cart-btn">Add to cart</button>
+                                    </div>                                   
+                                </form>
                             </div>
                         </div>
                     </div>

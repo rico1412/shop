@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js" lang="">
+{<include file="common/header.html">}
+    <body>
+    {<include file="common/top.html">}
+        <!-- header area end -->
+        <!-- cart item area start -->
+        <div class="shopping-cart">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="location">
+                            <ul>
+                                <li><a href="index.html" title="go to homepage">Home<span>/</span></a>  </li>
+                                <li><strong> Shopping cart</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table-bordered table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="cart-item-img">商品图片</th>
+                                        <th class="cart-product-name">商品名称</th>
+                                        <th class="unit-price">单价</th>
+                                        <th class="quantity">数量</th>
+                                        <th class="subtotal">小计</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    {<foreach from=$data item='data'>}
+                                    <tr>
+                                        <td class="cart-item-img">
+                                            <a href="single-product.html">
+                                                <img src="{<C('URL.main')>}/public/home/img/cart/3.png" alt="">
+                                            </a>
+                                        </td>
+                                        <td class="cart-product-name">
+                                            <a href="single-product.html">{<$data.name>}</a>
+                                        </td>
+                                        <td class="unit-price">
+                                            <span>${<$data.price>}</span>
+                                        </td>
+                                        <td class="quantity">
+                                            <span>{<$data.qtybutton>}</span>
+                                        </td>
+                                        <td class="subtotal">
+                                            <span>{<$data.price*$data.qtybutton>}</span>
+                                        </td>
+                                    </tr>
+                                    {</foreach>}
+                                </tbody>
+                            </table>
+                            <div class="shopping-button">
+                                <div class="continue-shopping">
+                                    <button type="submit">continue shopping</button>
+                                </div>
+                                <div class="shopping-cart-left">
+                                    <button type="submit">Clear Shopping Cart</button>
+                                    <button type="submit">Update Shopping Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="discount-code">
+                            <h3>Discount Codes</h3>
+                            <p>Enter your coupon code if you have one.</p>
+                            <input type="text">
+                            <div class="shopping-button">
+                                <button type="submit">apply coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="estimate-shipping">
+                            <h3>Estimate Shipping and Tax</h3>
+                            <p>Enter your destination to get a shipping estimate.</p>
+                            <form action="#">
+                                <div class="form-box">
+                                    <div class="form-name">
+                                        <label> country <em>*</em> </label>
+                                        <select>
+                                            <option value="1">Afghanistan</option>
+                                            <option value="1">Algeria</option>
+                                            <option value="1">American Samoa</option>
+                                            <option value="1">Australia</option>
+                                            <option value="1">Bangladesh</option>
+                                            <option value="1">Belgium</option>
+                                            <option value="1">Bosnia and Herzegovina</option>
+                                            <option value="1">Chile</option>
+                                            <option value="1">China</option>
+                                            <option value="1">Egypt</option>
+                                            <option value="1">Finland</option>
+                                            <option value="1">France</option>
+                                            <option value="1">United State</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-box">
+                                    <div class="form-name">
+                                        <label> State/Province </label>
+                                        <select>
+                                            <option value="1">Please select region, state or province</option>
+                                            <option value="1">Arizona</option>
+                                            <option value="1">Armed Forces Africa</option>
+                                            <option value="1">California</option>
+                                            <option value="1">Florida</option>
+                                            <option value="1">Indiana</option>
+                                            <option value="1">Marshall Islands</option>
+                                            <option value="1">Minnesota</option>
+                                            <option value="1">New Mexico</option>
+                                            <option value="1">Utah</option>
+                                            <option value="1">Virgin Islands</option>
+                                            <option value="1">West Virginia</option>
+                                            <option value="1">Wyoming</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-box">
+                                    <div class="form-name">
+                                        <label> Zip/Postal Code </label>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                                <div class="shopping-button">
+                                    <button type="submit">get a quote</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="totals">
+                            <p>subtotal <span>$1,540.00</span> </p>
+                            <h3>Grand Total <span>$1,540.00</span></h3>
+                            <div class="shopping-button">
+                                <button type="submit">proceed to checkout</button>
+                            </div>
+                            <a href="#">Checkout with Multiple Addresses</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cart item area end -->
+        <!-- footer top area start -->
+{<include file="common/footer.html">}
+        <!-- footer area end -->
+        <!-- jquery
+        ============================================ -->
+        <script src="js/vendor/jquery-1.12.1.min.js"></script>
+        <!-- bootstrap JS
+        ============================================ -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- wow JS
+        ============================================ -->
+        <script src="js/wow.min.js"></script>
+        <!-- price-slider JS
+        ============================================ -->
+        <script src="js/jquery-price-slider.js"></script>
+        <!-- nivoslider JS
+        ============================================ -->
+        <script src="lib/js/jquery.nivo.slider.js"></script>
+        <script src="lib/home.js"></script>
+        <!-- meanmenu JS
+        ============================================ -->
+        <script src="js/jquery.meanmenu.js"></script>
+        <!-- owl.carousel JS
+        ============================================ -->
+        <script src="js/owl.carousel.min.js"></script>
+        <!-- elevatezoom JS
+        ============================================ -->
+        <script src="js/jquery.elevatezoom.js"></script>
+        <!-- scrollUp JS
+        ============================================ -->
+        <script src="js/jquery.scrollUp.min.js"></script>
+        <!-- plugins JS
+        ============================================ -->
+        <script src="js/plugins.js"></script>
+        <!-- main JS
+        ============================================ -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
