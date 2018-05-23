@@ -11,6 +11,10 @@ namespace home\controller;
 
 class AccountController extends HomeController {
     public function show(){
+        if (!$this->checkLogin()){
+            exit;
+        }
+
         $this->display('account.html');
     }
 }
