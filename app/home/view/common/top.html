@@ -9,7 +9,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 col-md-offset-3 col-sm-9 hidden-xs">
-
+                    {<if isset($smarty.session.home)>}
+                    <div class="site-option">
+                        <ul>
+                            <li style="padding: 0 10px;"> <p>欢迎你: <span> {<$smarty.session.home.acc>}</span></p> </li>
+                        </ul>
+                    </div>
+                    {</if>}
                     <div class="call-support">
                         <p>Call support free: <span> (800) 123 456 789</span></p>
                     </div>
@@ -38,44 +44,39 @@
                                     <ul>
                                         <li><a href="{<C('URL.main')>}/index.php?p=home&m=account&a=show">my account</a></li>
                                         <li><a href="wishlist.html">my wishlist</a></li>
-                                        <li><a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showcart">my cart</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
+                                        <li><a href="{<C('URL.main')>}/index.php?p=home&m=cart&a=showCart">my cart</a></li>
+                                        <li><a href="{<C('URL.main')>}/index.php?p=home&m=checkout&a=checkout">Checkout</a></li>
                                         <li><a href="{<C('URL.main')>}/index.php?p=home&m=show&a=blog">Blog</a></li>
-                                        <li><a href="#">Log in</a></li>
+                                        {<if isset($smarty.session.home)>}
+                                        <li><a href="{<C('URL.main')>}/index.php?p=home&m=login&a=logout">Log out</a></li>
+                                        {<else>}
+                                            <li><a href="{<C('URL.main')>}/index.php?p=home&m=login&a=login">Log in</a></li>
+                                        {</if>}
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                         <div class="cart-menu">
                             <ul>
-                                <li><a href="#"> <img src="{<C('URL.main')>}/public/home/img/icon-cart.png" alt=""> <span>2</span> </a>
+                                <li><a href="#"> <img src="{<C('URL.main')>}/public/home/img/icon-cart.png" alt=""> <span>{<count($cart_datas)>}</span> </a>
                                     <div class="cart-info">
                                         <ul>
+                                            {<foreach from=$cart_datas item="data">}
                                             <li>
-                                                <div class="cart-img">
-                                                    <img src="{<C('URL.main')>}/public/home/img/cart/1.png" alt="">
+                                                <div >
+                                                    <img src="{<C('URL.main')>}/public/admin/img/{<$data.img>}" alt="" width="60" height="60" style="width: 50%;height: auto;max-width: 50%;display: block;">
                                                 </div>
                                                 <div class="cart-details">
-                                                    <a href="#">Fusce aliquam</a>
-                                                    <p>1 x $174.00</p>
+                                                    <a href="{<C('URL.main')>}/index.php?p=home&m=products&a=showIntro&id={<$data.id>}">{<$data.name>}</a>
+                                                    <p>{<$data.qtybutton>} x ￥{<$data.price>}</p>
                                                 </div>
                                                 <div class="btn-edit"></div>
                                                 <div class="btn-remove"></div>
                                             </li>
-                                            <li>
-                                                <div class="cart-img">
-                                                    <img src="{<C('URL.main')>}/public/home/img/cart/2.png" alt="">
-                                                </div>
-                                                <div class="cart-details">
-                                                    <a href="#">Fusce aliquam</a>
-                                                    <p>1 x $777.00</p>
-                                                </div>
-                                                <div class="btn-edit"></div>
-                                                <div class="btn-remove"></div>
-                                            </li>
+                                            {</foreach>}
                                         </ul>
-                                        <h3>Subtotal: <span> $951.00</span></h3>
-                                        <a href="checkout.html" class="checkout">checkout</a>
+                                        <h3>Subtotal: <span> ￥{<$totalPrice>}</span></h3>
+                                        <a href="{<C('URL.main')>}/index.php?p=home&m=checkout&a=checkout" class="checkout">checkout</a>
                                     </div>
                                 </li>
                             </ul>

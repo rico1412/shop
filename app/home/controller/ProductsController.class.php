@@ -21,17 +21,17 @@ class ProductsController extends HomeController{
 
         # 分页相关
         $nowPage = isset($_GET['page']) ? $_GET['page'] : 1;
-        $numPerPage = 1;
+        $numPerPage = 5;
         $sql = "select count(*) num from sp_goods_info where 1{$condition}";
         $num = $p_model->getRow($sql)['num'];
         $totalPage = (int)ceil($num / $numPerPage);
         $url = C('URL.main') . "/index.php?p=home&m=products&a=showList&c_id={$c_id}&page";
-        $pageHtml = pageHtml($nowPage, $totalPage, $url);
+        $pageHtml = pageHtml_li($nowPage, $totalPage, $url);
 
         //调用模型查询数据
-        $sql = "select * from sp_goods_info where 1{$condition}";
+        $x = ($nowPage - 1) * $numPerPage;
+        $sql = "select * from sp_goods_info where 1{$condition} limit {$x}, {$numPerPage}";
         $datas = $p_model->getRows($sql);
-        var_dump($sql);
 
         # 展示分类数据
         $c_model = M('CatModel');
@@ -62,60 +62,38 @@ class ProductsController extends HomeController{
 
     	$sql="select id,name,intro,price,img from sp_goods_info where 1";
     	$jihes=$ProductsModel->getRows($sql);
-    	// var_dump($jihe);die;
     	$this->assign('jihe',$jihe);//把查询出的数据分配给模板
         $this->assign('jihes',$jihes);//把查询出的数据分配给模板
     	$this->assign('id',$id);//把查询出的数据分配给模板
     	$this->display('single-product.html');//渲染模板
     }
-  
+
     public function showcartadd(){
-        
-        $id=$_GET['id'];
-        $qtybutton=!empty($_POST['qtybutton']) ? $_POST['qtybutton'] : 1;
+
+        $id = $_GET['id'];
+        $qtybutton = !empty($_POST['qtybutton']) ? $_POST['qtybutton'] : 1;
         $cartUnSer = isset($_COOKIE['Cart']) ? unserialize($_COOKIE['Cart']) : array();
-        // var_dump($qtybutton);die;
         $cartUnSer[] = array(
-            'id' =>$id,
-            'qtybutton'=>$qtybutton
+            'id' => $id,
+            'qtybutton' => $qtybutton
         );
         echo "<pre/>";
-        // var_dump($cartUnSer);die;
         $cart = serialize($cartUnSer);
-        setcookie('Cart', $cart);
+        setcookie('Cart', $cart, time() + 7*24*3600);
 
-        if($cartUnSer){
+        if ($cartUnSer) {
             // $this->assign('cartUnSer',$cartUnSer);
-            echo "添加购物车成功";
-        $url=C('URL.main')."/index.php?p=home&m=products&a=showintro&id={$id}";
-        header('Refresh:2;url='.$url);
-        exit;
-        }else{
-            echo "添加购物车失败";
-        $url=C('URL.main')."/index.php?p=home&m=products&a=showintro&id={$id}";
-        header('Refresh:2;url='.$url);
-        exit;
+            echo "<script>alert('添加购物车成功！！');location.href='" . C('URL.main') . "/index.php/?p=home&m=cart&a=showCart'</script>";
+//            echo "添加购物车成功";
+//            $url = C('URL.main') . "/index.php?p=home&m=products&a=showintro&id={$id}";
+//            header('Refresh:2;url=' . $url);
+            exit;
+        } else {
+            echo "<script>alert('添加购物车失败！！');location.href='" . C('URL.main') . "/index.php/?p=home&m=cart&a=showCart'</script>";
+//            echo "添加购物车失败";
+//            $url = C('URL.main') . "/index.php?p=home&m=products&a=showintro&id={$id}";
+//            header('Refresh:2;url=' . $url);
+            exit;
         }
-    }
-
-    public function showcart(){
-        $cookie = stripslashes ( $_COOKIE ['Cart'] ); //去除addslashes添加的反斜杠
-        $cartUnSer = unserialize ( $cookie );//反序列化cookie 
-        echo "<pre/>";
-        $ProductsModel=\core\APP::single('\\model\\ProductsModel');
-        $data=[];
-        foreach ($cartUnSer as $val) {
-            $num=$val['qtybutton'];
-            $id=$val['id'];
-            $sql="select img,name,price from sp_goods_info where id={$id}";
-            $row=$ProductsModel->getRow($sql);
-            $row['qtybutton']=$num;
-            $data[]=$row;
-            // echo "<pre/>";
-            // print_r($row);die;
-        }
-        // var_dump($data);die;
-        $this->assign('data',$data);
-        $this->display('cart.html');
     }
 }
