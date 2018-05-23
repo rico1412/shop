@@ -7,7 +7,7 @@
                     <div class="col-md-12">
                         <div class="location">
                             <ul>
-                                <li><a href="index.html" title="go to homepage">Home<span>/</span></a>  </li>
+                                <li><a href="{<C('URL.main')>}/index.php?p=home&m=index&a=index" title="go to homepage">Home<span>/</span></a>  </li>
                                 <li><strong> Fusce aliquam</strong></li>
                             </ul>
                         </div>
@@ -23,7 +23,7 @@
                     <div class="col-sm-6">
                         <div class="single-product-img">
                             <div class="single-pro-main-image">
-                                <a href="#"><img id="optima_zoom" src="{<C('URL.main')>}/public/home/img/product/1.png" data-zoom-image="{<C('URL.main')>}/public/home/img/product/1.png" alt="optima"/></a>
+                                <a href="#"><img id="optima_zoom" src="{<C('URL.main')>}/public/admin/img/{<$jihe.img>}" data-zoom-image="{<C('URL.main')>}/public/admin/img/{<$jihe.img>}" alt=""/></a>
                             </div>
                         </div>
                         
@@ -39,8 +39,8 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star-half-o"></i>
-                                        <a href="#" class="review">1 Review(s)</a>
-                                        <a href="#" class="add-review">Add Your Review</a>
+                                        <a href="#" class="review">1条评论</a>
+                                        <a href="#" class="add-review">添加你的评论</a>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                 <p>Availability:<span> In stock</span></p>
                             </div>
                             <div class="item-price">
-                                <span>{<$jihe.price>}</span>
+                                <span>￥{<$jihe.price>}</span>
                             </div>
                             <div class="single-product-info">
                                 <p>{<$jihe.intro>}</p>
@@ -77,9 +77,9 @@
                             </div>
                            
                             <div class="cart-item">
-                                <div class="price-box">
-                                    <span>$170</span>
-                                </div>
+                                <!--<div class="price-box">-->
+                                    <!--<span>￥{<$jihe.ori_price>}</span>-->
+                                <!--</div>-->
                                 <form action="{<C('URL.main')>}/index.php?p=home&m=products&a=showcartadd&id={<$id>}" method="post">
                                     <input type="hidden" name="img" value="{<$jihe.img>}">
                                     <input type="hidden" name="name" value="{<$jihe.name>}">
@@ -89,7 +89,7 @@
                                             <label>Qty: </label>
                                             <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
                                         </div>
-                                        <button class="cart-btn">Add to cart</button>
+                                        <button class="cart-btn">添加到购物车</button>
                                     </div>                                   
                                 </form>
                             </div>
@@ -107,14 +107,14 @@
                         <div class="single-product-tab">
                             <ul class="single-product-tab-navigation" role="tablist">
                               
-                                <li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">product tag</a></li>
+                                <li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">产品描述</a></li>
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content single-product-page">
                                 <div role="tabpanel" class="tab-pane fade in active" id="tab1">
                                     <div class="single-p-tab-content">
-                                        <p>{<$jihe.descript>}</p>
+                                        <p>{<htmlDecode($jihe.descript)>}</p>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="tab2">
@@ -251,7 +251,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="product-title">
-                            <h2>upsell products</h2>
+                            <h2>售买爆款的球鞋</h2>
                         </div>
                     </div>
                 </div>
@@ -261,8 +261,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="{<C('URL.main')>}/public/home/img/product/{<$jihe.img>}" alt="" class="{<C('URL.main')>}/public/home/primary-img">
-                                        <img src="img/product/26.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/25.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/26.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -273,8 +273,8 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-o"></i>
-                                            <a href="#" class="review">1 Review(s)</a>
-                                            <a href="#" class="add-review">Add Your Review</a>
+                                            <a href="#" class="review">1条评论</a>
+                                            <a href="#" class="add-review">添加你的评论</a>
                                         </div>
                                     </div>
                                 </div>
@@ -292,8 +292,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/23.png" alt="" class="primary-img">
-                                        <img src="img/product/24.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/23.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/24.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -304,8 +304,8 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-o"></i>
-                                            <a href="#" class="review">1 Review(s)</a>
-                                            <a href="#" class="add-review">Add Your Review</a>
+                                            <a href="#" class="review">1条评论</a>
+                                            <a href="#" class="add-review">添加你的评论</a>
                                         </div>
                                     </div>
                                 </div>
@@ -323,8 +323,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/21.png" alt="" class="primary-img">
-                                        <img src="img/product/22.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/21.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/22.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -335,8 +335,8 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-o"></i>
-                                            <a href="#" class="review">1 Review(s)</a>
-                                            <a href="#" class="add-review">Add Your Review</a>
+                                            <a href="#" class="review">1条评论</a>
+                                            <a href="#" class="add-review">添加你的评论</a>
                                         </div>
                                     </div>
                                 </div>
@@ -354,8 +354,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/19.png" alt="" class="primary-img">
-                                        <img src="img/product/20.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/19.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/20.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -366,8 +366,8 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-o"></i>
-                                            <a href="#" class="review">1 Review(s)</a>
-                                            <a href="#" class="add-review">Add Your Review</a>
+                                            <a href="#" class="review">1条评论</a>
+                                            <a href="#" class="add-review">添加你的评论</a>
                                         </div>
                                     </div>
                                 </div>
@@ -385,8 +385,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/17.png" alt="" class="primary-img">
-                                        <img src="img/product/18.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/17.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/18.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -397,8 +397,8 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-o"></i>
-                                            <a href="#" class="review">1 Review(s)</a>
-                                            <a href="#" class="add-review">Add Your Review</a>
+                                            <a href="#" class="review">1条评论</a>
+                                            <a href="#" class="add-review">添加你的评论</a>
                                         </div>
                                     </div>
                                 </div>
@@ -416,8 +416,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/15.png" alt="" class="primary-img">
-                                        <img src="img/product/16.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/15.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/16.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -428,8 +428,8 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-o"></i>
-                                            <a href="#" class="review">1 Review(s)</a>
-                                            <a href="#" class="add-review">Add Your Review</a>
+                                            <a href="#" class="review">1条评论</a>
+                                            <a href="#" class="add-review">添加你的评论</a>
                                         </div>
                                     </div>
                                 </div>
@@ -447,8 +447,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/13.png" alt="" class="primary-img">
-                                        <img src="img/product/14.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/13.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/14.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -459,8 +459,8 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-o"></i>
-                                            <a href="#" class="review">1 Review(s)</a>
-                                            <a href="#" class="add-review">Add Your Review</a>
+                                            <a href="#" class="review">1条评论</a>
+                                            <a href="#" class="add-review">添加你的评论</a>
                                         </div>
                                     </div>
                                 </div>
@@ -478,8 +478,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/11.png" alt="" class="primary-img">
-                                        <img src="img/product/12.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/11.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/12.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="list-product-info">
@@ -490,8 +490,8 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-o"></i>
-                                            <a href="#" class="review">1 Review(s)</a>
-                                            <a href="#" class="add-review">Add Your Review</a>
+                                            <a href="#" class="review">1条评论</a>
+                                            <a href="#" class="add-review">添加你的评论</a>
                                         </div>
                                     </div>
                                 </div>
@@ -516,7 +516,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="product-title">
-                            <h2>related products</h2>
+                            <h2>明星同款球鞋</h2>
                         </div>
                     </div>
                 </div>
@@ -526,8 +526,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/25.png" alt="" class="primary-img">
-                                        <img src="img/product/26.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/25.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/26.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -544,8 +544,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/23.png" alt="" class="primary-img">
-                                        <img src="img/product/24.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/23.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/24.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -562,8 +562,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/21.png" alt="" class="primary-img">
-                                        <img src="img/product/22.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/21.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/22.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -580,8 +580,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/19.png" alt="" class="primary-img">
-                                        <img src="img/product/20.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/19.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/20.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -598,8 +598,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/17.png" alt="" class="primary-img">
-                                        <img src="img/product/18.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/17.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/18.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -616,8 +616,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/15.png" alt="" class="primary-img">
-                                        <img src="img/product/16.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/15.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/16.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -634,8 +634,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/13.png" alt="" class="primary-img">
-                                        <img src="img/product/14.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/13.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/14.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -652,8 +652,8 @@
                             <div class="single-product">
                                 <div class="product-img">
                                     <a href="single-product.html">
-                                        <img src="img/product/11.png" alt="" class="primary-img">
-                                        <img src="img/product/12.png" alt="" class="secondary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/11.png" alt="" class="primary-img">
+                                        <img src="{<C('URL.main')>}/public/home/img/product/12.png" alt="" class="secondary-img">
                                     </a>
                                 </div>
                                 <div class="product-price">

@@ -23,7 +23,8 @@
                 <td>{<if $data_val.status=="0">}<span style="color: red;">未处理</span>{<else>}<span style="color: gray;">已处理</span>{</if>}</td>
                 <td>
                     <div class="button-group">
-                        <a class="button border-main" href="{<C('URL.main')>}/index.php?p=admin&m=order&a=showDetails&order_id={<$data_val.order_id>}&page={<$nowPage>}"><span class="icon-edit"></span> 订单详情</a>
+                        <a class="button border-main" href="{<C('URL.main')>}/index.php?p=admin&m=order&a=showDetails&order_id={<$data_val.order_id>}&page={<$nowPage>}"><span class="icon-pencil"></span> 订单详情</a>
+                        <a class="button border-red" href="{<C('URL.main')>}/index.php?p=admin&m=order&a=upd_h&id={<$data_val.id>}&page={<$nowPage>}" onclick="return confirm('您确定要修改订单状态吗?')"><span class="icon-wrench"></span> 处理订单</a>
                     </div>
                 </td>
             </tr>

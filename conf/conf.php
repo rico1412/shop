@@ -15,7 +15,7 @@ $config = array(
 
     //默认访问的页面
     'web' => [
-        'p' => 'admin',//默认的平台参数
+        'p' => 'home',//默认的平台参数
         'm' => 'Index',//默认的模块参数
         'a' => 'index'//默认的动作参数
     ],
@@ -23,7 +23,7 @@ $config = array(
     //文件上传配置
     'upF' => [
         'limitType' => ['image/jpeg', 'image/png'],//限定的文件类型
-        'limitSize' => 300*1024,//限定的文件大小200K
+        'limitSize' => 3000*1024,//限定的文件大小200K
         'path' => $root_path . 'public/admin/img'//上传文件存放的目录路径
     ],
     //网站域名配置项
