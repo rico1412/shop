@@ -10,7 +10,7 @@ $config = array(
         'char' =>  'utf8',//字符集
         'dbname' =>  'shop',//默认选择的数据库
         'acc' =>  'root',//账号
-        'pwd' =>  '123'//密码
+        'pwd' =>  '123abc'//密码
     ],
 
     //默认访问的页面
